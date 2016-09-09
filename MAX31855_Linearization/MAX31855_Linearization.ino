@@ -20,6 +20,7 @@
        double thermocoupleVoltage= 0;
        double internalVoltage = 0;
        double correctedTemp = 0;
+       double totalVoltage = 0;
  
         // Check to make sure thermocouple is working correctly.
        if (isnan(rawTemp)) {
@@ -68,7 +69,7 @@
           }
  
           // Step 4. Add the cold junction equivalent thermocouple voltage calculated in step 3 to the thermocouple voltage calculated in step 2.
-          double totalVoltage = thermocoupleVoltage + internalVoltage;
+          totalVoltage = thermocoupleVoltage + internalVoltage;
  
           // Step 5. Use the result of step 4 and the NIST voltage-to-temperature (inverse) coefficients to calculate the cold junction compensated, linearized temperature value.
           // The equation is in the form correctedTemp = d_0 + d_1*E + d_2*E^2 + ... + d_n*E^n, where E is the totalVoltage in mV and correctedTemp is in degrees C.
